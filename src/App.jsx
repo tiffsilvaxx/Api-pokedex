@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Styles from './Styles/App.css'
-import {getPokemon,getPokemonByName} from './services/pokemon-services'
+import  { useState } from 'react';
+import axiosApi from 'axios';
+import Styles from './Styles/index.css';
+import {getPokemon, getPokemonByName} from './services/pokemon-services';
+import {PokemonList} from './pokemonlist';
+
+
 
 function App() {
   const [pokemonName, setPokemonName] = useState('');
@@ -9,8 +12,8 @@ function App() {
 
   const getPokemonData = async () => {
     try {
-      const response = await getPokemonByName(pokemonName)
-      const data = response.data;
+      const response = await getPokemonByName(pokemonName);
+      const data = response;
 
       setPokemonData({
         name: data.name,
@@ -24,7 +27,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Busque seu pokemon</h1>
       <div>
         <input
           type="text"
@@ -32,13 +34,16 @@ function App() {
           value={pokemonName}
           onChange={(e) => setPokemonName(e.target.value)}
         />
-        <button onClick={getPokemonData}>Search</button>
+        <button onClick={getPokemonData}>Buscar</button>
+        <PokemonList />
       </div>
-      {pokemonData  && (
+      {pokemonData && (
         <div>
           <h2>Nome: {pokemonData.name}</h2>
           <img src={pokemonData.imageUrl} alt={pokemonData.name} />
+                
         </div>
+        
       )}
     </div>
   );

@@ -6,12 +6,9 @@ const getPokemon = async ()=> {
 }
 
 const getPokemonByName = async (pokemonName)=> {
-    const pokemon = await axiosApi.get(`pokemon/${pokemonName}`)
+    const pokemon = await axiosApi.get(`pokemon/${}`)
     return pokemon.data
 }
-
-
-
 
 export {getPokemonByName, getPokemon}
 
