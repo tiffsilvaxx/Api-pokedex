@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Container, Pokemoncontainer } from "./styles";
 import { useNavigate } from "react-router-dom";
 
@@ -28,6 +28,8 @@ function PokemonList({ pokemons }) {
     </Container>
   );
 }
-
+PokemonList.prototype={
+    pokemons: PropTypes.arrayOf(PropTypes.object),
+};
 
 export { PokemonList };

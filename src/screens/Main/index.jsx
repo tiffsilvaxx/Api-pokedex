@@ -7,13 +7,14 @@ function Main() {
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemons, setPokemons] = useState([]);
+  const [offset, setOffset] = useState(20);
 
   useEffect(() => {
-    getPokemon().then((data) => {
+    getPokemon(offset).then((data) => {
       setPokemonData(data.results);
       setPokemons(data.results);
     });
-  }, []);
+  }, [offset]);
 
   const filterPokemons = (event) => {
     setPokemonName(event.target.value);
@@ -22,6 +23,14 @@ function Main() {
     });
     setPokemons(filteredPokemons);
   };
+
+  const handleClickFooter = (type) => {
+    if(type ==='previous'){
+        setOffset(offset -20)
+    }else if (type==='next'){
+        setOffset(offset + 20)
+    }
+  }
 
   return (
     <Container>
@@ -34,8 +43,10 @@ function Main() {
         />
         </Row>
         <PokemonList  pokemons={pokemons}/>
-        <FooterButton>Anterior</FooterButton>
-        <FooterButton>Anterior</FooterButton>
+        <Row>
+        <FooterButton disabled={offset ===0} onClick={()=> handleClickFooter('previous')}>Anterior</FooterButton>
+        <FooterButton onClick={()=> handleClickFooter('next')}>Próxima</FooterButton>
+        </Row>
       
       
     </Container>
