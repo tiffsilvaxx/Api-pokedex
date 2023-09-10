@@ -5,7 +5,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #3b3a3856;
   border-radius: 5rem;
   `;
 
@@ -14,8 +13,8 @@ const Title = styled.h1`
 `;
 
 const Image = styled.img`
-  width: 5cm;
-  height: 5cm;
+  width: 500px;
+  height: 500px;
 `;
 
 export { Container, Image, Title };

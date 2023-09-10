@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Container, Pokemoncontainer } from "./styles";
+import { Container, Pokemoncontainer, Title } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 function PokemonList({ pokemons }) {
@@ -11,8 +11,10 @@ function PokemonList({ pokemons }) {
   };
 
   return (
+
+    
     <Container>
-      <h1>Lista dos Pokemons</h1>
+      <Title>Lista dos Pokemons</Title>
 
       {pokemons?.length > 0 &&
         pokemons.map((pokemon) => {

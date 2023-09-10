@@ -18,9 +18,17 @@ const Row = styled.div`
 const SearchInput = styled.input`
   width: 12cm;
   height: 2rem;
+  background-color: #f4f5ee;
+  border-radius: 7px;
+  border: 1px solid #0000004b;
+  &:hover {
+    cursor: pointer;
+    transition: 0.25s ;
+  }
+
 `;
 const FooterButton = styled.button`
-  border: 1px solid #000;
+  border: 1px solid #0000004b;
   border-radius: 8px;
   width: 200px;
   height: 35px;
@@ -28,6 +36,7 @@ const FooterButton = styled.button`
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  background-color: #f4f5ee;
 
   &:hover {
     cursor: pointer;
